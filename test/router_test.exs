@@ -5,4 +5,8 @@ defmodule RouterTest do
   test "the truth" do
     assert 1 + 1 == 2
   end
+
+  test "parse" do
+    assert Router.parse == 'Parsing'
+  end
 end
