@@ -21,4 +21,8 @@ defmodule RuleTest do
     Router.Rule.remove(:id)
     assert Router.Rule.rules == %{}
   end
+
+  test "rules" do
+    assert Router.Rule.rules == %{}
+  end
 end
