@@ -10,7 +10,7 @@ defmodule Router.Rule do
     :ok
   end
 
-  def add(id, rule), do: Agent.update(__MODULE__, fn rules -> Map.put(rules, id, rule) end)
+  def add(:id, rule), do: Agent.update(__MODULE__, fn rules -> Map.put(rules, :id, rule) end)
   def remove(:id), do: Agent.update(__MODULE__, fn rules -> Map.delete(rules, :id) end)
   def rules, do: Agent.get(__MODULE__, fn rules -> rules end)
 end
