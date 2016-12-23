@@ -2,7 +2,7 @@ defmodule RuleTest do
   use ExUnit.Case
   doctest Router.Rule
 
-  setup_all do
+  setup do
     Router.Rule.start_agent
   end
 

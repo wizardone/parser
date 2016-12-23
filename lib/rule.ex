@@ -3,6 +3,7 @@ defmodule Router.Rule do
   Main module that holds information about the router rules
   """
   @on_load :start_agent
+  #@before_compile {__MODULE__, start_agent}
 
   def start_agent do
     # Need this before compile
