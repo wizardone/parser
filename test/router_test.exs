@@ -5,7 +5,7 @@ defmodule RouterTest do
   setup do
     Router.Rule.start_agent
     function = fn(request) -> request end
-    Router.Rule.add(:id, function)
+    Router.Rule.add(:query, function)
   end
 
   test "the truth" do
@@ -13,7 +13,7 @@ defmodule RouterTest do
   end
 
   test "parse" do
-    query = '?some_param=param'
-    Router.parse(query)
+    uri = "http://test.com/?query=omg"
+    Router.parse(uri)
   end
 end
