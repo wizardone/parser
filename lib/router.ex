@@ -1,14 +1,20 @@
 defmodule Router do
   def parse(request) do
     rules = Router.Rule.rules
-    uri = URI.parse(request)
-    Enum.each(rules, fn({_k, v}) ->
-      if v.(uri) do
-        :ok
-      else
-        :not_ok
-      end
+    cond do
+      Enum.empty?(rules) ->
+        "No rules added"
+      !Enum.empty?(rules) ->
+        uri = URI.parse(request)
+        Enum.each(rules, fn({k, v}) ->
+          if v.(uri.query) do
+            #{:ok, k}
+          else
+            #{:not_ok, "Rules do not match"}
+            :error
+          end
+        end
+        )
     end
-    )
   end
 end
