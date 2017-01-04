@@ -4,7 +4,7 @@ defmodule RouterTest do
 
   setup do
     Router.Rule.start_agent
-    function = fn(request) -> request end
+    function = fn(request) -> String.match?(request.query, ~r/query/) end
     Router.Rule.add(:query, function)
   end
 
@@ -14,6 +14,6 @@ defmodule RouterTest do
 
   test "parse" do
     uri = "http://test.com/?query=omg"
-    Router.parse(uri)
+    assert Router.parse(uri) == :ok
   end
 end
