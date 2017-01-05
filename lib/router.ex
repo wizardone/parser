@@ -6,12 +6,11 @@ defmodule Router do
         "No rules added"
       !Enum.empty?(rules) ->
         uri = URI.parse(request)
-        Enum.each(rules, fn({k, v}) ->
+        Enum.map(rules, fn({k, v}) ->
           if v.(uri.query) do
-            #{:ok, k}
+            {:ok, k}
           else
-            #{:not_ok, "Rules do not match"}
-            :error
+            {:not_ok, "Rules do not match"}
           end
         end
         )

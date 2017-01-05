@@ -20,7 +20,7 @@ defmodule RouterTest do
     Router.Rule.add(:query, function)
     uri = "http://test.com/?query=omg"
 
-    assert Router.parse(uri) == :ok
+    assert Router.parse(uri) == [ok: :query]
   end
 
   test "parse unsuccessful" do
@@ -28,6 +28,6 @@ defmodule RouterTest do
     Router.Rule.add(:query, function)
     uri = "http://test.com/?search=true"
 
-    assert Router.parse(uri) == :ok
+    assert Router.parse(uri) == [{:not_ok, "Rules do not match"}]
   end
 end
