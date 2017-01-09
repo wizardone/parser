@@ -1,6 +1,9 @@
 # Router
+[![Build Status](https://travis-ci.org/wizardone/router.svg?branch=master)](https://travis-ci.org/wizardone/router)
 
-**TODO: Add description**
+A small service that parses the whole request body, it is meant to run the
+whole request against a set of rules and determine where to redirect the
+request body.
 
 ## Installation
 
