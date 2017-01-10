@@ -12,7 +12,7 @@ defmodule RouterTest do
 
   test "parse with no rules" do
     uri = "http://test.com/?search=true"
-    assert Router.parse(uri) == "No rules added"
+    assert Router.parse(uri) == {:ok, "No rules added"}
   end
 
   test "parse successful" do

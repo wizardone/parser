@@ -3,7 +3,7 @@ defmodule Router do
     rules = Router.Rule.rules
     cond do
       Enum.empty?(rules) ->
-        "No rules added"
+        {:ok, "No rules added"}
       !Enum.empty?(rules) ->
         uri = URI.parse(request)
         Enum.map(rules, fn({k, v}) ->
