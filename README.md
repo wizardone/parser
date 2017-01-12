@@ -11,10 +11,12 @@ This is my first ever elixir project, so I intent to extend it more and make it 
 ```elixir
 # Start the process, that will hold the rules
 UrlParser.Rule.start_agent
+
 # Add some rules
 function = fn(request) -> String.match?(request, ~r/query/) end
 UrlParser.Rule.add(:query, function)
 
+uri = "http://test.com/?query=omg"
 # If the url satisfies the rule
 UrlParser.parse(uri)
 => [ok: :query]
