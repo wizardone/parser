@@ -1,12 +1,14 @@
-defmodule Router.Mixfile do
+defmodule UrlParser.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :router,
+    [app: :url_parser,
      version: "0.1.0",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     description: description(),
+     package: package(),
      deps: deps()]
   end
 
@@ -27,6 +29,20 @@ defmodule Router.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [{:ex_doc, ">= 0.0.0", only: :dev}]
+  end
+
+  defp description do
+    """
+    A small service that parses urls agains a given set of rules
+    """
+  end
+
+  defp package do
+    [name: :url_parser,
+     files: ["lib", "mix.exs", "README*"],
+     maintainers: ["Stefan Slaveykov"],
+     licenses: ["MiT"],
+     links: %{"GitHub" => "https://github.com/wizardone/parser.git"}]
   end
 end

@@ -1,6 +1,6 @@
-defmodule Router do
+defmodule UrlParser do
   def parse(request) do
-    rules = Router.Rule.rules
+    rules = UrlParser.Rule.rules
     cond do
       Enum.empty?(rules) ->
         {:ok, "No rules added"}

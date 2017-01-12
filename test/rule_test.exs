@@ -1,28 +1,28 @@
 defmodule RuleTest do
   use ExUnit.Case
-  doctest Router.Rule
+  doctest UrlParser.Rule
 
   setup do
-    Router.Rule.start_agent
+    UrlParser.Rule.start_agent
   end
 
   test "add" do
     function = fn(request) -> request end
-    Router.Rule.add(:id, function)
+    UrlParser.Rule.add(:id, function)
 
-    assert Router.Rule.rules == %{id: function}
+    assert UrlParser.Rule.rules == %{id: function}
   end
 
   test "remove" do
     function = fn(request) -> request end
-    Router.Rule.add(:id, function)
-    assert Router.Rule.rules == %{id: function}
+    UrlParser.Rule.add(:id, function)
+    assert UrlParser.Rule.rules == %{id: function}
 
-    Router.Rule.remove(:id)
-    assert Router.Rule.rules == %{}
+    UrlParser.Rule.remove(:id)
+    assert UrlParser.Rule.rules == %{}
   end
 
   test "rules" do
-    assert Router.Rule.rules == %{}
+    assert UrlParser.Rule.rules == %{}
   end
 end

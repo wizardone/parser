@@ -1,4 +1,4 @@
-defmodule Router.Rule do
+defmodule UrlParser.Rule do
   @moduledoc """
   Main module that holds information about the router rules
   """
