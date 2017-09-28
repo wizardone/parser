@@ -1,4 +1,4 @@
-# Router
+# UrlParser
 [![Build Status](https://travis-ci.org/wizardone/parser.svg?branch=master)](https://travis-ci.org/wizardone/parser)
 
 A small service that parses the whole request body (currently it is working only with the query params), it is meant to run the
